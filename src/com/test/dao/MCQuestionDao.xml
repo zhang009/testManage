@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.dao.MCQuestionDao">
+
+	<!-- 插入单选题到数据库 -->
+	<insert id="saveMCQuestion" parameterType="mcquestion">
+		insert into multiple_choice(
+			
+			mc_subject,
+			mc_point,
+			mc_stem,
+			mc_option,	
+			mc_answer,
+			mc_analysis,
+			mc_t_name,
+			mc_tb_id,
+			mc_ct_id)
+		values(
+		
+			#{mc_subject},
+			#{mc_point},
+			#{mc_stem},
+			#{mc_option},
+			#{mc_answer},
+			#{mc_analysis},
+			#{mc_t_name},
+			#{mc_tb_id},
+			#{mc_ct_id}
+			
+		)
+	</insert>
+	<!-- 根据id查询单选题信息 -->
+	<select id="getMCQuestionsBySub" parameterType="Integer" resultType="mcquestion">
+		select * from multiple_choice where mc_subject=#{mc_subject}
+	
+	</select>
+	
+	<delete id="deleteById" parameterType="Integer">
+		delete  from multiple_choice where mc_id=#{mc_id}
+	</delete>
+	
+	<select id="selectById"  parameterType="Integer" resultType="mcquestion">
+		select * from multiple_choice where mc_id=#{mc_id}
+	</select>
+	
+	
+</mapper>
