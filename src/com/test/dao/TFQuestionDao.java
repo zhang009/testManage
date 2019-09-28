@@ -3,7 +3,6 @@ package com.test.dao;
 
 import java.util.List;
 
-import com.test.po.SCQuestion;
 import com.test.po.TFQuestion;
 
 public interface TFQuestionDao {

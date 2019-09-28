@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.dao.FBQuestionDao">
+
+	<!-- 插入单选题到数据库 -->
+	<insert id="saveFBQuestion" parameterType="fbquestion">
+		insert into fill_in_the_blank(
+			
+			fb_subject,
+			fb_point,
+			fb_stem,
+			
+			fb_answer,
+			fb_analysis,
+			fb_t_name,
+			fb_tb_id,
+			fb_ct_id)
+		values(
+			#{fb_subject},
+			#{fb_point},
+			#{fb_stem},
+			#{fb_answer},
+			#{fb_analysis},
+			#{fb_t_name},
+			#{fb_tb_id},
+			#{fb_ct_id}
+		)
+	</insert>
+	<!-- 根据id查询单选题信息 -->
+	<select id="getFBQuestionsBySub" parameterType="Integer" resultType="fbquestion">
+		select * from fill_in_the_blank where fb_subject=#{fb_subject}
+	
+	</select>
+	<delete id="deleteById" parameterType="Integer">
+		delete  from fill_in_the_blank where fb_id=#{fb_id}
+	</delete>
+	
+</mapper>
