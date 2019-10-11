@@ -27,6 +27,7 @@ public class UserController {
 		int status_code = teacherService.addTeacher(t_name, t_pass, t_email);
 //		model.addAttribute("status_code", status_code);//·µ»Ø×´Ì¬Âë
 	}
+//²âÊÔ34
 	//µÇÂ¼Ð£Ñé
 	@RequestMapping(value = "/loginExamine.action",method = RequestMethod.GET)
 	@ResponseBody
