@@ -5,35 +5,38 @@
 
 	<!-- 插入单选题到数据库 -->
 	<insert id="saveTFQuestion" parameterType="tfquestion">
-		insert into true_or_false(
-			
-			tf_subject,
-			tf_point,
-			tf_stem,
-			tf_answer,
-			tf_analysis,
-			tf_t_name,
-			tf_tb_id,
-			tf_ct_id)
+		insert into
+		true_or_false(
+
+		tf_subject,
+		tf_point,
+		tf_stem,
+		tf_answer,
+		tf_analysis,
+		tf_t_name,
+		tf_tb_id,
+		tf_ct_id)
 		values(
-			#{tf_subject},
-			#{tf_point},
-			#{tf_stem},
-			#{tf_answer},
-			#{tf_analysis},
-			#{tf_t_name},
-			#{tf_tb_id},
-			#{tf_ct_id}
-			
+		#{tf_subject},
+		#{tf_point},
+		#{tf_stem},
+		#{tf_answer},
+		#{tf_analysis},
+		#{tf_t_name},
+		#{tf_tb_id},
+		#{tf_ct_id}
+
 		)
 	</insert>
 	<!-- 根据id查询单选题信息 -->
-	<select id="getTFQuestionsBySub" parameterType="Integer" resultType="tfquestion">
+	<select id="getTFQuestionsBySub" parameterType="Integer"
+		resultType="tfquestion">
 		select * from true_or_false where tf_subject=#{tf_subject}
-	
+
 	</select>
-	
+
 	<delete id="deleteById" parameterType="Integer">
-		delete  from true_or_false where tf_id=#{tf_id}
+		delete from true_or_false
+		where tf_id=#{tf_id}
 	</delete>
 </mapper>

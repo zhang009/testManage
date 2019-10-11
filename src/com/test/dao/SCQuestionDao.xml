@@ -5,55 +5,60 @@
 
 	<!-- 插入单选题到数据库 -->
 	<insert id="saveSCQuestion" parameterType="scquestion">
-		insert into single_choice(
-			sc_subject,
-			sc_point,
-			sc_stem,
-			sc_option,
-			sc_answer,
-			sc_analysis,
-			sc_t_name,
-			sc_tb_id,
-			sc_ct_id)
+		insert into
+		single_choice(
+		sc_subject,
+		sc_point,
+		sc_stem,
+		sc_option,
+		sc_answer,
+		sc_analysis,
+		sc_t_name,
+		sc_tb_id,
+		sc_ct_id)
 		values(
-			#{sc_subject},
-			#{sc_point},
-			#{sc_stem},
-			#{sc_option},
-			#{sc_answer},
-			#{sc_analysis},
-			#{sc_t_name},
-			#{sc_tb_id},
-			#{sc_ct_id}
-			
+		#{sc_subject},
+		#{sc_point},
+		#{sc_stem},
+		#{sc_option},
+		#{sc_answer},
+		#{sc_analysis},
+		#{sc_t_name},
+		#{sc_tb_id},
+		#{sc_ct_id}
+
 		)
 	</insert>
 	<update id="updateSCQuestion" parameterType="scquestion">
-		update single_choice set sc_subject=#{sc_subject},
-			sc_point=#{sc_point},
-			sc_stem=#{sc_stem},
-			sc_option=#{sc_option},
-			sc_answer=#{sc_answer},
-			sc_analysis=#{sc_analysis},
-			sc_t_name=#{sc_t_name},
-			sc_tb_id=#{sc_tb_id},
-			sc_ct_id=#{sc_ct_id}
-			where sc_id=#{sc_id}
+		update single_choice
+		set sc_subject=#{sc_subject},
+		sc_point=#{sc_point},
+		sc_stem=#{sc_stem},
+		sc_option=#{sc_option},
+		sc_answer=#{sc_answer},
+		sc_analysis=#{sc_analysis},
+		sc_t_name=#{sc_t_name},
+		sc_tb_id=#{sc_tb_id},
+		sc_ct_id=#{sc_ct_id}
+		where sc_id=#{sc_id}
 	</update>
-	
+
 	<!-- 根据id查询单选题信息 -->
-	<select id="selectById" parameterType="Integer" resultType="scquestion">
+	<select id="selectById" parameterType="Integer"
+		resultType="scquestion">
 		select * from single_choice where sc_id=#{sc_id}
 	</select>
 
-	
-	<select id="getSCQuestionsBySub" parameterType="Integer" resultType="scquestion">
+
+	<select id="getSCQuestionsBySub" parameterType="Integer"
+		resultType="scquestion">
 		select * from single_choice where sc_subject=#{sc_subject};
-	
+
 	</select>
-	
+
 	<delete id="deleteById" parameterType="Integer">
-		delete  from single_choice where sc_id=#{sc_id}
+		delete from single_choice
+		where sc_id=#{sc_id}
 	</delete>
-	
+
 </mapper>
