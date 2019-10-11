@@ -8,7 +8,7 @@ import com.test.po.TextBook;
 /**
  * @description ¿Î±¾dao
  * @author zhangyifang
- * @date 2019-6-21
+ * @date 2019-6-22
  */
 public interface TextBookDao {
 
