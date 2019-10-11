@@ -17,7 +17,7 @@ public class UserController {
 	@Autowired
 	private TeacherService teacherService;//测试push
 	
-	//用户注册
+	//用户注册   
 	@RequestMapping(value = "/addTeacher.action",method = RequestMethod.GET)
 	@ResponseBody
 	public void addUser(HttpServletRequest request,Model model){
