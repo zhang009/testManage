@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.test.service.TeacherService;
-//12
-//56
-//ab
-//ef
+// Another
+// Polaris
 @Controller
 public class UserController {
 	// ≤‚ ‘∫œ≤¢
