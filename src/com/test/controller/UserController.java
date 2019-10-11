@@ -10,14 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.test.service.TeacherService;
-<<<<<<< HEAD
 // Another
-=======
-//1234
-//5678
-//abcd
-//efgh
->>>>>>> branch 'master' of https://github.com/Another7/testManage.git
 @Controller
 public class UserController {
 	// ≤‚ ‘∫œ≤¢
