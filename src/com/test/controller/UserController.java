@@ -17,7 +17,7 @@ public class UserController {
 	@Autowired
 	private TeacherService teacherService;//²âÊÔpush
 	
-	//ÓÃ»§×¢²á   
+//²âÊÔ12	//ÓÃ»§×¢²á   
 	@RequestMapping(value = "/addTeacher.action",method = RequestMethod.GET)
 	@ResponseBody
 	public void addUser(HttpServletRequest request,Model model){
@@ -27,6 +27,7 @@ public class UserController {
 		int status_code = teacherService.addTeacher(t_name, t_pass, t_email);
 //		model.addAttribute("status_code", status_code);//·µ»Ø×´Ì¬Âë
 	}
+//²âÊÔ34
 	//µÇÂ¼Ð£Ñé
 	@RequestMapping(value = "/loginExamine.action",method = RequestMethod.GET)
 	@ResponseBody
