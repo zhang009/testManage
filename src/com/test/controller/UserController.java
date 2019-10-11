@@ -15,7 +15,7 @@ import com.test.service.TeacherService;
 public class UserController {
 	
 	@Autowired
-	private TeacherService teacherService;
+	private TeacherService teacherService;//≤‚ ‘push
 	
 	//”√ªß◊¢≤·
 	@RequestMapping(value = "/addTeacher.action",method = RequestMethod.GET)
