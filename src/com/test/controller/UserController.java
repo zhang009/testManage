@@ -13,7 +13,7 @@ import com.test.service.TeacherService;
 
 @Controller
 public class UserController {
-	
+	// ≤‚ ‘∫œ≤¢
 	@Autowired
 	private TeacherService teacherService;//≤‚ ‘push
 	
