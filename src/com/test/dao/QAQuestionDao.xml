@@ -5,42 +5,38 @@
 
 	<!-- 插入单选题到数据库 -->
 	<insert id="saveQAQuestion" parameterType="qaquestion">
-		insert into
-		questioin_and_answer(
-
-		qa_subject,
-		qa_point,
-		qa_stem,
-
-		qa_answer,
-		qa_analysis,
-		qa_t_name,
-		qa_tb_id,
-		qa_ct_id)
+		insert into questioin_and_answer(
+			
+			qa_subject,
+			qa_point,
+			qa_stem,
+			
+			qa_answer,
+			qa_analysis,
+			qa_t_name,
+			qa_tb_id,
+			qa_ct_id)
 		values(
-
-		#{qa_subject},
-		#{qa_point},
-		#{qa_stem},
-		#{qa_answer},
-		#{qa_analysis},
-		#{mc_t_name},
-		#{qa_tb_id},
-		#{qa_ct_id}
-
+		
+			#{qa_subject},
+			#{qa_point},
+			#{qa_stem},
+			#{qa_answer},
+			#{qa_analysis},
+			#{mc_t_name},
+			#{qa_tb_id},
+			#{qa_ct_id}
+			
 		)
 	</insert>
 	<!-- 根据id查询单选题信息 -->
-	<select id="getQAQuestionsBySub" parameterType="Integer"
-		resultType="qaquestion">
-		select * from question_and_answer where
-		qa_subject=#{qa_subject}
-
+	<select id="getQAQuestionsBySub" parameterType="Integer" resultType="qaquestion">
+		select * from question_and_answer where qa_subject=#{qa_subject}
+	
 	</select>
-
+	
 	<delete id="deleteById" parameterType="Integer">
-		delete from
-		question_and_answer where qa_id=#{qa_id}
+		delete  from question_and_answer where qa_id=#{qa_id}
 	</delete>
-
+	
 </mapper>

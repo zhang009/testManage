@@ -3,29 +3,26 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.test.dao.ChapterTitleDao">
 
-
+	
 	<!-- 插入章节标题到数据库 -->
-	<insert id="addChapterTitle" parameterType="chaptertitle">
-		insert into
-		chapter_title(
-		ct_name,
-		ct_tb_id,
-		ct_num)
+	 <insert id="addChapterTitle" parameterType="chaptertitle">
+		insert into chapter_title(
+			ct_name,
+			ct_tb_id,
+			ct_num)
 		values(
-		#{ct_name},
-		#{ct_tb_id},
-		#{ct_num}
+			#{ct_name},
+			#{ct_tb_id},
+			#{ct_num}
 		)
-	</insert>
+	</insert> 
 	<!-- 根据课本id查询所有章节列表，并按字段ct_num升序排序 -->
-	<select id="getChaptersByTBid" parameterType="Integer"
-		resultType="chaptertitle">
-		select * from chapter_title where ct_tb_id=#{tb_id} order
-		by ct_num asc
-
+	<select id="getChaptersByTBid" parameterType="Integer" resultType="chaptertitle">
+		select * from chapter_title where ct_tb_id=#{tb_id} order by ct_num asc
+	
 	</select>
 
-
-
-
+	
+	
+	
 </mapper>
