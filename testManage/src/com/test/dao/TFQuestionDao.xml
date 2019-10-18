@@ -13,7 +13,7 @@
 			tf_answer,
 			tf_analysis,
 			tf_t_name,
-			tf_tb_id,
+			tf_c_id,
 			tf_ct_id)
 		values(
 			#{tf_subject},
@@ -22,7 +22,7 @@
 			#{tf_answer},
 			#{tf_analysis},
 			#{tf_t_name},
-			#{tf_tb_id},
+			#{tf_c_id},
 			#{tf_ct_id}
 			
 		)

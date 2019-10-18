@@ -15,13 +15,13 @@ public class SCQuestion {
 	private String sc_answer;//答案
 	private String sc_analysis;//解析
 	private String sc_t_name;//出题人
-	private Integer sc_tb_id;//教科书编号
+	private Integer sc_c_id;//课程编号
 	private Integer sc_ct_id;//章节编号
 	
 	
 	public SCQuestion(Integer sc_subject, String sc_point, String sc_stem,
 			String sc_option, String sc_answer, String sc_analysis,
-			String sc_t_name, Integer sc_tb_id, Integer sc_ct_id) {
+			String sc_t_name, Integer sc_c_id, Integer sc_ct_id) {
 		super();
 		this.sc_subject = sc_subject;
 		this.sc_point = sc_point;
@@ -30,7 +30,7 @@ public class SCQuestion {
 		this.sc_answer = sc_answer;
 		this.sc_analysis = sc_analysis;
 		this.sc_t_name = sc_t_name;
-		this.sc_tb_id = sc_tb_id;
+		this.sc_c_id = sc_c_id;
 		this.sc_ct_id = sc_ct_id;
 	}
 
@@ -47,13 +47,13 @@ public class SCQuestion {
 				+ ", sc_point=" + sc_point + ", sc_stem=" + sc_stem
 				+ ", sc_option=" + sc_option + ", sc_answer=" + sc_answer
 				+ ", sc_analysis=" + sc_analysis + ", sc_t_name=" + sc_t_name
-				+ ", sc_tb_id=" + sc_tb_id + ", sc_ct_id=" + sc_ct_id + "]";
+				+ ", sc_c_id=" + sc_c_id + ", sc_ct_id=" + sc_ct_id + "]";
 	}
 
 
 	public SCQuestion(Integer sc_id, Integer sc_subject, String sc_point,
 			String sc_stem, String sc_option, String sc_answer,
-			String sc_analysis, String sc_t_name, Integer sc_tb_id,
+			String sc_analysis, String sc_t_name, Integer sc_c_id,
 			Integer sc_ct_id) {
 		super();
 		this.sc_id = sc_id;
@@ -64,7 +64,7 @@ public class SCQuestion {
 		this.sc_answer = sc_answer;
 		this.sc_analysis = sc_analysis;
 		this.sc_t_name = sc_t_name;
-		this.sc_tb_id = sc_tb_id;
+		this.sc_c_id = sc_c_id;
 		this.sc_ct_id = sc_ct_id;
 	}
 
@@ -149,13 +149,13 @@ public class SCQuestion {
 	}
 
 
-	public Integer getSc_tb_id() {
-		return sc_tb_id;
+	public Integer getSc_c_id() {
+		return sc_c_id;
 	}
 
 
-	public void setSc_tb_id(Integer sc_tb_id) {
-		this.sc_tb_id = sc_tb_id;
+	public void setSc_c_id(Integer sc_c_id) {
+		this.sc_c_id = sc_c_id;
 	}
 
 

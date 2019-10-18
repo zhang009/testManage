@@ -14,10 +14,10 @@ public class QAQuestion {
 	private String qa_answer;//答案
 	private String qa_analysis;//解析
 	private String qa_t_name;//出题人
-	private Integer qa_tb_id;//教科书编号
+	private Integer qa_c_id;//课程编号
 	private Integer qa_ct_id;//章节编号
 	public QAQuestion(Integer qa_subject, String qa_point, String qa_stem,
-			String qa_answer, String qa_analysis, Integer qa_tb_id,
+			String qa_answer, String qa_analysis, Integer qa_c_id,
 			Integer qa_ct_id) {
 		super();
 		this.qa_subject = qa_subject;
@@ -25,12 +25,12 @@ public class QAQuestion {
 		this.qa_stem = qa_stem;
 		this.qa_answer = qa_answer;
 		this.qa_analysis = qa_analysis;
-		this.qa_tb_id = qa_tb_id;
+		this.qa_c_id = qa_c_id;
 		this.qa_ct_id = qa_ct_id;
 	}
 	public QAQuestion(Integer qa_id, Integer qa_subject, String qa_point,
 			String qa_stem, String qa_answer, String qa_analysis,
-			String qa_t_name, Integer qa_tb_id, Integer qa_ct_id) {
+			String qa_t_name, Integer qa_c_id, Integer qa_ct_id) {
 		super();
 		this.qa_id = qa_id;
 		this.qa_subject = qa_subject;
@@ -39,7 +39,7 @@ public class QAQuestion {
 		this.qa_answer = qa_answer;
 		this.qa_analysis = qa_analysis;
 		this.qa_t_name = qa_t_name;
-		this.qa_tb_id = qa_tb_id;
+		this.qa_c_id = qa_c_id;
 		this.qa_ct_id = qa_ct_id;
 	}
 	public Integer getQa_id() {
@@ -79,11 +79,11 @@ public class QAQuestion {
 		this.qa_analysis = qa_analysis;
 	}
 	
-	public Integer getQa_tb_id() {
-		return qa_tb_id;
+	public Integer getQa_c_id() {
+		return qa_c_id;
 	}
-	public void setQa_tb_id(Integer qa_tb_id) {
-		this.qa_tb_id = qa_tb_id;
+	public void setQa_c_id(Integer qa_c_id) {
+		this.qa_c_id = qa_c_id;
 	}
 	public Integer getQa_ct_id() {
 		return qa_ct_id;
@@ -102,7 +102,7 @@ public class QAQuestion {
 		return "QAQuestion [qa_id=" + qa_id + ", qa_subject=" + qa_subject
 				+ ", qa_point=" + qa_point + ", qa_stem=" + qa_stem
 				+ ", qa_answer=" + qa_answer + ", qa_analysis=" + qa_analysis
-				+ ", qa_t_name=" + qa_t_name + ", qa_tb_id=" + qa_tb_id
+				+ ", qa_t_name=" + qa_t_name + ", qa_c_id=" + qa_c_id
 				+ ", qa_ct_id=" + qa_ct_id + "]";
 	}
 	

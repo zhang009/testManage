@@ -14,7 +14,7 @@
 			mc_answer,
 			mc_analysis,
 			mc_t_name,
-			mc_tb_id,
+			mc_c_id,
 			mc_ct_id)
 		values(
 		
@@ -25,7 +25,7 @@
 			#{mc_answer},
 			#{mc_analysis},
 			#{mc_t_name},
-			#{mc_tb_id},
+			#{mc_c_id},
 			#{mc_ct_id}
 			
 		)

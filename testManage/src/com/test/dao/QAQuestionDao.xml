@@ -14,7 +14,7 @@
 			qa_answer,
 			qa_analysis,
 			qa_t_name,
-			qa_tb_id,
+			qa_c_id,
 			qa_ct_id)
 		values(
 		
@@ -24,7 +24,7 @@
 			#{qa_answer},
 			#{qa_analysis},
 			#{mc_t_name},
-			#{qa_tb_id},
+			#{qa_c_id},
 			#{qa_ct_id}
 			
 		)

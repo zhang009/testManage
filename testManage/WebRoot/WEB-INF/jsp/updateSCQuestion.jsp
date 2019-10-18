@@ -15,36 +15,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  <link href="css/bootstrap.min.css" rel="stylesheet">
  <script type="text/javascript">
  	
- 	/* 根据所选择的科目，查找该科目下的课本列表，并显示在select里*/
+ 	/* 根据所选择的科目，查找该科目下的课程列表，并显示在select里*/
 		function change(id){	    	
     		var code = $("#addSubject").val();
     		//alert(code);
     		$.ajax({
 	       	   method:"post",
-	         	url:"/testManage/getTextBooks.action",
+	         	url:"/testManage/getCourses.action",
 	         	data:{"data":code},
 			 	dataType:'json',
 	       	   	success:function (res) {
 	       	   		if(res.length == 0){
                         //如果一级没有对应的二级 则清空二级并 不往下执行
                        
-                        $("#addTextBook").empty();
-                        $("#addTextBook").selectpicker("refresh");
+                        $("#addCourse").empty();
+                        $("#addCourse").selectpicker("refresh");
                         return ;
                    	 }
                    	// alert(res.length);
 	          		 var str="";
 	           	  	for (var i = 0; i < res.length; i++) {
-	            	 	  str+="<option value='"+res[i].tb_id+"'>"+res[i].tb_name+"</option>";
+	            	 	  str+="<option value='"+res[i].c_id+"'>"+res[i].c_name+"</option>";
 	         	 	 } 
-	           	  $("#addTextBook").append(str);
-	          	  $("#addTextBook").find("option[text='--请选择--']").attr("selected",true);
+	           	  $("#addCourse").append(str);
+	          	  $("#addCourse").find("option[text='--请选择--']").attr("selected",true);
 	          }
 	   	 });
     	}
     	/* 当科目改变时，获取该科目下的章节列表，给对应的下拉框赋值 */
     	function changeBook(id){
-    		var kemu=$("#addTextBook").val();
+    		var kemu=$("#addCourse").val();
     		//alert(kemu);
     		$.ajax({
 	       	   method:"post",
@@ -95,10 +95,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var answer=$("#answer").val();
     		var analysis=$("#analysis").val();	
     		var subject=$("#addSubject").val();
-    		var tb_id=$("#addTextBook").val();
+    		var c_id=$("#addCourse").val();
     		var ct_id=$("#addChapter").val();
     		var point=$("#point").val();
-		   var data={sc_subject:subject,sc_point:point,sc_stem:stem,sc_option:option,sc_answer:answer,sc_analysis:analysis,sc_tb_id:tb_id,sc_ct_id:ct_id};
+		   var data={sc_subject:subject,sc_point:point,sc_stem:stem,sc_option:option,sc_answer:answer,sc_analysis:analysis,sc_c_id:c_id,sc_ct_id:ct_id};
 		   	$.ajax({
 		       	   method:"post",
 		         	url:"/testManage/addSCQuestion.action",
@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     		var chapter=$("#hiddenChapter").val(); 
     		$("#addSubject").find("option[text='"+subject+"']").attr("selected",true);
     		$("#addChapter").find("option[text='"+chapter+"']").attr("selected",true);
- 			$("#addTextBook").find("option[text='"+book+"']").attr("selected",true);
+ 			$("#addCourse").find("option[text='"+book+"']").attr("selected",true);
  			//alert(subject);
  			 
  		};
@@ -174,10 +174,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 					</div>
 					<div class="form-group">
-						<label class=" col-md-2 control-label">课本</label> 
+						<label class=" col-md-2 control-label">课程</label> 
 						<div class="col-md-8">
 						<!-- 二级下拉框 -->
-						<select id="addTextBook"	class=" form-control " id="addTextBook" name="textbook" onchange="changeBook(this.id)">
+						<select id="addCourse"	class=" form-control " id="addCourse" name="Course" onchange="changeBook(this.id)">
 							<option value="">--请选择--</option>
 						</select>
 						</div>
@@ -208,7 +208,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  </div>
 				 <input type="hidden" id="hiddenOption" value='${scquestion.sc_option}'><!-- 隐藏的选项 -->
 				  <input type="hidden" id="hiddenSubject" value='${scquestion.sc_subject}'><!-- 隐藏的选项 -->
-				   <input type="hidden" id="hiddenBook" value='${scquestion.sc_tb_id}'><!-- 隐藏的选项 -->
+				   <input type="hidden" id="hiddenBook" value='${scquestion.sc_c_id}'><!-- 隐藏的选项 -->
 				    <input type="hidden" id="hiddenChapter" value='${scquestion.sc_ct_id}'><!-- 隐藏的选项 -->
 				 
 				  <div id="choices"><!-- -------选项开始 -->

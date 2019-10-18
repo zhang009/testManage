@@ -1,3 +1,12 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String socketPath=request.getServerName()+":"+request.getServerPort()+path+"/";
+//getServerName先得到服务器的ip地址，getServerPort()得到相应的端口号；
+//getContextPath得到的是上下文路径，其实就是发布了项目的文件名，
+//如："ws:139.129.47.176:8089/web//ws"
+%>
 <!doctype html>
 <html>
 <head>
@@ -11,13 +20,13 @@
 <link href="css/css.css" rel="stylesheet" type="text/css">
 
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <script src="js/bootsnav.js" type="text/javascript"></script>
 <script src="js/jquery.js" type="text/javascript"></script>
 <!--[if IE]><script src="js/html5.js"></script><![endif]-->
 <title>登录</title>
 </head>
-
 <body class="logobg_style">
   	<div id="large-header" class="large-header login-page">
   		<canvas id="demo-canvas" width="1590" height="711"></canvas>
@@ -33,7 +42,6 @@
 						 </div>
 						<input type="text" class="form-control" name="username" id="username" placeholder="用户名/邮箱" autocomplete="off">
 					</div>
-
 				</div>   
   
 				<div class="form-group clearfix">
@@ -59,10 +67,6 @@
 				<!-- Implemented in v1.1.4 -->				<div class="form-group">
 					
 				</div>
-
-
-
-	
 			</form>
   			</div>
   			

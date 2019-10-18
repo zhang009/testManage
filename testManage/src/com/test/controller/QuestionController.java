@@ -22,18 +22,21 @@ import com.test.po.QAQuestion;
 import com.test.po.SCQuestion;
 import com.test.po.Subject;
 import com.test.po.TFQuestion;
-import com.test.po.TextBook;
+import com.test.po.Course;
 import com.test.pojo.SCQuestionData;
-import com.test.pojo.TextBookData;
+import com.test.pojo.CourseData;
 import com.test.service.ChapterService;
 import com.test.service.QuestionService;
 import com.test.service.SubjectService;
-import com.test.service.TextBookService;
-   
+import com.test.service.CourseService;
+
+
+
+
+
 @Controller
 public class QuestionController {
 
-	
 	@Autowired
 	private QuestionService questionService;
 	
@@ -41,7 +44,7 @@ public class QuestionController {
 	private SubjectService subjectService;
 	
 	@Autowired
-	private TextBookService textBookService;
+	private CourseService CourseService;
 	
 	@Autowired
 	private ChapterService chapterService;
@@ -248,15 +251,15 @@ public class QuestionController {
 		System.out.println("list:"+list.toString());
 		return list;
 	}
-	/*根据科目的id获取该科目下的所有课本列表*/
-	@RequestMapping(value = "/getTextBooks.action",method = RequestMethod.POST)
+	/*根据科目的id获取该科目下的所有课程列表*/
+	@RequestMapping(value = "/getCourses.action",method = RequestMethod.POST)
 	@ResponseBody
-	public List<TextBook> getTextBooks(HttpServletRequest request){
+	public List<Course> getCourses(HttpServletRequest request){
 		String s_id=(String)request.getParameter("data");
 		System.out.println("toAddTestBook:"+s_id);
 		
-		List<TextBook> list=textBookService.getTextBooksBySid(s_id);
-		System.out.println("TextBookList:"+list.toString());
+		List<Course> list=CourseService.getCoursesBySid(s_id);
+		System.out.println("CourseList:"+list.toString());
 		
 		return list;
 		
@@ -265,22 +268,22 @@ public class QuestionController {
 	@RequestMapping(value = "/getChapters.action",method = RequestMethod.POST)
 	@ResponseBody
 	public List<ChapterTitle> getChapters(HttpServletRequest request){
-		String tb_id=request.getParameter("data");
-		System.out.println("getChapters:"+tb_id);
+		String c_id=request.getParameter("data");
+		System.out.println("getChapters:"+c_id);
 		
-		List<ChapterTitle> list=chapterService.getChapterByTBid(tb_id);
-		System.out.println("TextBookList:"+list.toString());
+		List<ChapterTitle> list=chapterService.getChapterByTBid(c_id);
+		System.out.println("CourseList:"+list.toString());
 		return list;
 		
 	}
-	/*添加教科书*/
-	@RequestMapping(value = "/addTextBook.action",method = RequestMethod.POST)
+	/*添加课程*/
+	@RequestMapping(value = "/addCourse.action",method = RequestMethod.POST)
 	@ResponseBody
-	public Map<String,String> addTextBook(@RequestBody TextBookData textBookData){
+	public Map<String,String> addCourse(@RequestBody CourseData CourseData){
 		
-		System.out.println("addTextBook:"+textBookData.toString());
+		System.out.println("addCourse:"+CourseData.toString());
 		Map<String, String> map=new HashMap<String, String>();
-		boolean result=this.textBookService.addTextBookByBookData(textBookData);
+		boolean result=this.CourseService.addCourseByBookData(CourseData);
 		 if(result){
 			map.put("result", "yes");
 		}else{

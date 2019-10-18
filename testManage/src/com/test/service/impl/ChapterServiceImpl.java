@@ -22,9 +22,9 @@ public class ChapterServiceImpl implements ChapterService {
 	@Override
 	public List<ChapterTitle> getChapterByTBid(String id) {
 		
-		Integer tb_id=Integer.valueOf(id);
-		System.out.println("tb_id:"+tb_id);
-		List<ChapterTitle> list=chapterTitleDao.getChaptersByTBid(tb_id);
+		Integer c_id=Integer.valueOf(id);
+		System.out.println("c_id:"+c_id);
+		List<ChapterTitle> list=chapterTitleDao.getChaptersByTBid(c_id);
 		
 		return list;
 	}

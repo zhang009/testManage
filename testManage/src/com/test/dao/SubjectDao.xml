@@ -13,7 +13,7 @@
 	<resultMap id="subjectMap" type="subject">
 	    <id column="s_id" property="id"/>
 	    <result column="s_name" property="sname"/>
-	    <result column="s_tb_id" property="textbookId"/>
+	    <result column="s_c_id" property="CourseId"/>
 	</resultMap>
 
 </mapper>

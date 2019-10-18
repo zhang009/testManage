@@ -8,17 +8,17 @@
 	 <insert id="addChapterTitle" parameterType="chaptertitle">
 		insert into chapter_title(
 			ct_name,
-			ct_tb_id,
+			ct_c_id,
 			ct_num)
 		values(
 			#{ct_name},
-			#{ct_tb_id},
+			#{ct_c_id},
 			#{ct_num}
 		)
 	</insert> 
-	<!-- 根据课本id查询所有章节列表，并按字段ct_num升序排序 -->
+	<!-- 根据课程id查询所有章节列表，并按字段ct_num升序排序 -->
 	<select id="getChaptersByTBid" parameterType="Integer" resultType="chaptertitle">
-		select * from chapter_title where ct_tb_id=#{tb_id} order by ct_num asc
+		select * from chapter_title where ct_c_id=#{c_id} order by ct_num asc
 	
 	</select>
 

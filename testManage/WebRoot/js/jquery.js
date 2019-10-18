@@ -1,3 +1,4 @@
+
 //登录操作
 $(document).ready(function(){
 if(screen.width < 780 && $(window).width() < 780)
@@ -13,14 +14,13 @@ if(screen.width < 780 && $(window).width() < 780)
 });
 
 //登录操作
-var phone =/[1][3-9][0-9]{9,9}/;
+//var phone =/[1][3-9][0-9]{9,9}/;//手机号码正则表达式
 var email=/(^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$)/;
 var validCode=true;
-function cliLogin() {
+function cliLogin() {//登录按钮点击事件
 	var txtUser = $.trim($("#username").val());
 	var txtPwd = $("#password").val();
 	
-	i
 	if ($.trim(txtUser) == "") {
 	
 		Tip('请输入你的手机号/邮箱');
@@ -41,17 +41,20 @@ function cliLogin() {
 		$("#Userpwd").focus();
 		return;
 	}
-	checkUser(user,txtPwd);
+	checkUser(txtUser,txtPwd);
 	return false;
 }
 //验证用户名是否存在
- function checkUser(txtUser,pwd){
-	/*if(username.indexOf("@")!=-1){
-		userType="email";
+ function checkUser(user,pwd){
+	 var userType;
+	 var data;
+	if(user.search("@")!=-1){
+		 
+		data={t_name:"",t_pass:pwd,t_email:user};
 	}else{
-		userType="username";
-	}	*/
-	var data={username:user,password:pwd};
+		data={t_name:user,t_pass:pwd,t_email:""};
+	}	
+	
 	/*1：校验成功
 		0：密码错误
 		-1：用户不存在*/
@@ -59,19 +62,24 @@ function cliLogin() {
 	$.ajax({
 		type:"POST",
 		url:"/testManage/loginExamine.action",
-		data:{"data":JSON.stringify(data)},
+		data:JSON.stringify(data),
+		
+		contentType : "application/json;charset=UTF-8",
 		dataType:'json',
 		success:function(data){
-			alert(data);
-			if(data.result=="1"){
-				alert("登录成功");
-				 window.location.href = "main.html";
-			}else if(data.result=="0"){
-				alert("密码错误");
+			//alert(data.status_code);
+			//alert(data);
+			if(data.status_code=="1"){
+				//alert("登录成功");
+				 window.location.href = "main.jsp";
+			}else if(data.status_code=="0"){
+				//alert("密码错误");
+				Tip('密码输入错误！');
 				$("#Userpwd").focus();
 				return;
-			}else if(data.result=="-1"){
-				alert("用户不存在");
+			}else if(data.status_code=="-1"){
+				//alert("用户不存在");
+				Tip('用户不存在！');
 			}else{
 				alert("未知错误！");
 			}
@@ -82,14 +90,14 @@ function cliLogin() {
 //注册操作
 
 function Sendpwd(sender) {
-	var time=30;
-	var phones = $.trim($("#phone").val());
-	if ($.trim(phones) == "") {
+	/*var time=30;
+	var emails = $.trim($("#email").val());
+	if ($.trim(emails) == "") {
 		Tip('请填写邮箱！');
-		$("#phone").focus();
+		$("#email").focus();
 		return;
-	}
-	var code=$(sender);
+	}*/
+	/*var code=$(sender);
 		if (validCode) {
 			validCode=false;
 			code.addClass("msgs1").attr("disabled",true);;
@@ -104,8 +112,7 @@ function Sendpwd(sender) {
 
 			}
 		},1000);
-		}
-
+		}*/
 }
 
 function Tip(msg) {

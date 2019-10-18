@@ -13,7 +13,7 @@ public class MCQuestion {
 	private String mc_stem;//题干
 	public MCQuestion(Integer mc_subject, String mc_point, String mc_stem,
 			String mc_option, String mc_answer, String mc_analysis,
-			String mc_tb_id, String mc_ct_id) {
+			String mc_c_id, String mc_ct_id) {
 		super();
 		this.mc_subject = mc_subject;
 		this.mc_point = mc_point;
@@ -21,7 +21,7 @@ public class MCQuestion {
 		this.mc_option = mc_option;
 		this.mc_answer = mc_answer;
 		this.mc_analysis = mc_analysis;
-		this.mc_tb_id = mc_tb_id;
+		this.mc_c_id = mc_c_id;
 		this.mc_ct_id = mc_ct_id;
 	}
 
@@ -30,12 +30,12 @@ public class MCQuestion {
 	
 	private String mc_analysis;//解析
 	private String mc_t_name;//出题人
-	private String mc_tb_id;//教科书编号
+	private String mc_c_id;//课程编号
 	private String mc_ct_id;//章节编号
 	
 	public MCQuestion(Integer mc_id, Integer mc_subject, String mc_point,
 			String mc_stem, String mc_option, String mc_answer,
-			String mc_analysis, String mc_t_name, String mc_tb_id,
+			String mc_analysis, String mc_t_name, String mc_c_id,
 			String mc_ct_id) {
 		super();
 		this.mc_id = mc_id;
@@ -46,7 +46,7 @@ public class MCQuestion {
 		this.mc_answer = mc_answer;
 		this.mc_analysis = mc_analysis;
 		this.mc_t_name = mc_t_name;
-		this.mc_tb_id = mc_tb_id;
+		this.mc_c_id = mc_c_id;
 		this.mc_ct_id = mc_ct_id;
 	}
 
@@ -56,7 +56,7 @@ public class MCQuestion {
 				+ ", mc_point=" + mc_point + ", mc_stem=" + mc_stem
 				+ ", mc_option=" + mc_option + ", mc_answer=" + mc_answer
 				+ ", mc_analysis=" + mc_analysis + ", mc_t_name=" + mc_t_name
-				+ ", mc_tb_id=" + mc_tb_id + ", mc_ct_id=" + mc_ct_id + "]";
+				+ ", mc_c_id=" + mc_c_id + ", mc_ct_id=" + mc_ct_id + "]";
 	}
 
 	public Integer getMc_id() {
@@ -123,12 +123,12 @@ public class MCQuestion {
 		this.mc_t_name = mc_t_name;
 	}
 
-	public String getMc_tb_id() {
-		return mc_tb_id;
+	public String getMc_c_id() {
+		return mc_c_id;
 	}
 
-	public void setMc_tb_id(String mc_tb_id) {
-		this.mc_tb_id = mc_tb_id;
+	public void setMc_c_id(String mc_c_id) {
+		this.mc_c_id = mc_c_id;
 	}
 
 	public String getMc_ct_id() {

@@ -6,36 +6,38 @@
 		});		
 		$("#preBtn").click(function(event) {
 			var yes=step.preStep();
-
 		});
 		$("#applyBtn").click(function(event) {		
 			
-		    var code = $.trim($("#Verification").val());
-			var phone =/[1][3-9][0-9]{9,9}/;
-		  var phones = $.trim($("#phone").val());
-		if ($.trim(phones) == "") {
-			Tip('请填写手机号码！');
-			$("#phone").focus();
+		   //验证码（这里不需要） var code = $.trim($("#Verification").val());
+			//var phone =/[1][3-9][0-9]{9,9}/;
+			var email=/(^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$)/;
+		  var emails = $.trim($("#email").val());//获取用户输入的邮箱
+		if ($.trim(emails) == "") {
+			Tip('请填写邮箱！');
+			$("#email").focus();
 			return;
 		}
-		if(!phone.exec(phones)){
+		if(!email.exec(emails)){
 
-				Tip('手机输入格式不正确,请从新输入');
-				$("#phones").focus();
+				Tip('邮箱输入格式不正确,请重新输入！');
+				$("#email").focus();
 			return;
 			}
-		if ($.trim(code) == "") {
+		/*if ($.trim(code) == "") {
 			Tip('动态密码未填写！');
 			$("#Verification").focus();
 			return;
-		}   
-			var yes=step.nextStep();
-			return;	
+		}   */
+		//验证邮箱是否已经注册
+		
+		 checkEmail(emails,step);
+		
+		return;	
 		});
 		$("#submitBtn").click(function(event) {
 			   var txtconfirm = $.trim($("#confirmpwd").val());
 	           var txtPwd = $("#password").val();
-	
 	          if ($.trim(txtPwd) == "") {
 	
 	         	Tips('请输入你要设置的密码！');
@@ -56,27 +58,87 @@
 		       $("#txtconfirm").focus();
 		      return;
 		
-	            }		
-			  var yes=step.nextStep();
-				$(function () {  setTimeout("lazyGo();", 1000); });
-                function lazyGo() {
-		         var sec = $("#sec").text();
-		            $("#sec").text(--sec);
-		            if (sec > 0)
-		         	setTimeout("lazyGo();", 1000);
-		            else
-			window.location.href = "article_home.html";
-	}
-	
+	            }
+			  submitRegist(step);
 			
+			
+             
 			
 		});
+		/* function lazyGo() {
+	         var sec = $("#sec").text();
+	            $("#sec").text(--sec);
+	            if (sec > 0)
+	         	setTimeout("lazyGo();", 1000);
+	            else
+		window.location.href = "login.jsp";
+}*/
+		$("#phone").onfocus=function(){
+			alert();
+			$(".tishi").hide();
+		};
 		$("#goBtn").click(function(event) {
 			var yes=step.goStep(3);
 		});	
 	});
+ function checkEmail(emails,step){//检查邮箱是否已经注册
+	var data={t_name:"",t_email:emails};
+	
+	$.ajax({
+		type:"POST",
+		url:"/testManage/registerCheck.action",
+		data:JSON.stringify(data),
+		
+		contentType : "application/json;charset=UTF-8",
+		dataType:'json',
+		success:function(data){
+			
+			if(data.result=="1"){
+				//用户名或邮箱已经存在
+				Tip('该邮箱已经被注册！请重新输入');
+				
+			}else{
+				//用户名或邮箱不存在,可以进行下一步
+				var yes=step.nextStep();
+				
+			}
+			
+		}
+	});
 
-
+}
+function submitRegist(step){
+	 var emails = $.trim($("#email").val());//获取用户输入的邮箱
+	 var password = $("#password").val();//获取用户输入的密码
+	 var data={t_name:"",t_pass:password,t_email:emails};
+	 $.ajax({
+			type:"POST",
+			url:"/testManage/addTeacher.action",
+			data:JSON.stringify(data),		
+			contentType : "application/json;charset=UTF-8",
+			dataType:'json',
+			success:function(data){
+				
+				if(data.result=="1"){
+					//注册成功
+					var yes=step.nextStep();
+					$(function () { setTimeout("lazyGo();", 1000); });
+				}else{
+					//注册失败
+					alert("注册失败！未知异常")
+					
+				}
+			}
+		});
+}
+function lazyGo() {
+    var sec = $("#sec").text();
+       $("#sec").text(--sec);
+       if (sec > 0)
+    	setTimeout("lazyGo();", 1000);
+       else
+window.location.href = "login.jsp";
+}
 (function (factory) {
     "use strict";
     if (typeof define === 'function') {

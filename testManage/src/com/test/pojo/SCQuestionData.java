@@ -9,7 +9,7 @@ public class SCQuestionData {
 	private String sc_option;
 	private String sc_answer;
 	private String sc_analysis;
-	private Integer sc_tb_id;
+	private Integer sc_c_id;
 	private Integer sc_ct_id;
 	
 	public Integer getSc_subject() {
@@ -48,11 +48,11 @@ public class SCQuestionData {
 	public void setSc_analysis(String sc_analysis) {
 		this.sc_analysis = sc_analysis;
 	}
-	public Integer getSc_tb_id() {
-		return sc_tb_id;
+	public Integer getSc_c_id() {
+		return sc_c_id;
 	}
-	public void setSc_tb_id(Integer sc_tb_id) {
-		this.sc_tb_id = sc_tb_id;
+	public void setSc_c_id(Integer sc_c_id) {
+		this.sc_c_id = sc_c_id;
 	}
 	public Integer getSc_ct_id() {
 		return sc_ct_id;
@@ -62,7 +62,7 @@ public class SCQuestionData {
 	}
 	public SCQuestionData(Integer sc_subject, String sc_point, String sc_stem,
 			String sc_option, String sc_answer, String sc_analysis,
-			Integer sc_tb_id, Integer sc_ct_id) {
+			Integer sc_c_id, Integer sc_ct_id) {
 		
 		this.sc_subject = sc_subject;
 		this.sc_point = sc_point;
@@ -70,7 +70,7 @@ public class SCQuestionData {
 		this.sc_option = sc_option;
 		this.sc_answer = sc_answer;
 		this.sc_analysis = sc_analysis;
-		this.sc_tb_id = sc_tb_id;
+		this.sc_c_id = sc_c_id;
 		this.sc_ct_id = sc_ct_id;
 	}
 	public SCQuestionData() {
@@ -82,7 +82,7 @@ public class SCQuestionData {
 		return "SCQuestionData [sc_subject=" + sc_subject + ", sc_point="
 				+ sc_point + ", sc_stem=" + sc_stem + ", sc_option="
 				+ sc_option + ", sc_answer=" + sc_answer + ", sc_analysis="
-				+ sc_analysis + ", sc_tb_id=" + sc_tb_id + ", sc_ct_id="
+				+ sc_analysis + ", sc_c_id=" + sc_c_id + ", sc_ct_id="
 				+ sc_ct_id + "]";
 	}
 	

@@ -8,5 +8,5 @@ public interface ChapterTitleDao {
 
 	boolean addChapterTitle(ChapterTitle chapterTitle);
 
-	List<ChapterTitle> getChaptersByTBid(Integer tb_id);
+	List<ChapterTitle> getChaptersByTBid(Integer c_id);
 }

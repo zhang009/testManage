@@ -47,10 +47,10 @@ public class QuestionServiceImpl implements QuestionService{
 		String option=scQuestionData.getSc_option();
 		String answer=scQuestionData.getSc_answer();
 		String analysis=scQuestionData.getSc_analysis();
-		Integer tb_id=scQuestionData.getSc_tb_id();
+		Integer c_id=scQuestionData.getSc_c_id();
 		Integer ct_id=scQuestionData.getSc_ct_id();
 		String username="admin";
-		SCQuestion scQuestion=new SCQuestion(subject,opint,stem,option,answer,analysis,username,tb_id,ct_id);
+		SCQuestion scQuestion=new SCQuestion(subject,opint,stem,option,answer,analysis,username,c_id,ct_id);
 		return scQuestionDao.saveSCQuestion(scQuestion);
 	}
 	/*添加多选题*/
@@ -230,10 +230,10 @@ public class QuestionServiceImpl implements QuestionService{
 		String option=scQuestionData.getSc_option();
 		String answer=scQuestionData.getSc_answer();
 		String analysis=scQuestionData.getSc_analysis();
-		Integer tb_id=scQuestionData.getSc_tb_id();
+		Integer c_id=scQuestionData.getSc_c_id();
 		Integer ct_id=scQuestionData.getSc_ct_id();
 		String username="admin";
-		SCQuestion scQuestion=new SCQuestion(subject,opint,stem,option,answer,analysis,username,tb_id,ct_id);
+		SCQuestion scQuestion=new SCQuestion(subject,opint,stem,option,answer,analysis,username,c_id,ct_id);
 		if( scQuestionDao.updateSCQuestion(scQuestion)>0){
 			return false;
 		}

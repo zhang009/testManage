@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>	
 					
 				  <div class="form-group">
-				    <label for="stem" class="col-md-2 control-label">课本名称</label>
+				    <label for="stem" class="col-md-2 control-label">课程名称</label>
 				    <div class="col-md-8">
 				      <input type="text" class="form-control" id="stem" placeholder="">
 				    </div>

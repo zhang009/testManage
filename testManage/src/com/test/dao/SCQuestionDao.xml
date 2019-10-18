@@ -13,7 +13,7 @@
 			sc_answer,
 			sc_analysis,
 			sc_t_name,
-			sc_tb_id,
+			sc_c_id,
 			sc_ct_id)
 		values(
 			#{sc_subject},
@@ -23,7 +23,7 @@
 			#{sc_answer},
 			#{sc_analysis},
 			#{sc_t_name},
-			#{sc_tb_id},
+			#{sc_c_id},
 			#{sc_ct_id}
 			
 		)
@@ -36,7 +36,7 @@
 			sc_answer=#{sc_answer},
 			sc_analysis=#{sc_analysis},
 			sc_t_name=#{sc_t_name},
-			sc_tb_id=#{sc_tb_id},
+			sc_c_id=#{sc_c_id},
 			sc_ct_id=#{sc_ct_id}
 			where sc_id=#{sc_id}
 	</update>

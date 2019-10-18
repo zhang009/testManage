@@ -14,7 +14,7 @@
 			fb_answer,
 			fb_analysis,
 			fb_t_name,
-			fb_tb_id,
+			fb_c_id,
 			fb_ct_id)
 		values(
 			#{fb_subject},
@@ -23,7 +23,7 @@
 			#{fb_answer},
 			#{fb_analysis},
 			#{fb_t_name},
-			#{fb_tb_id},
+			#{fb_c_id},
 			#{fb_ct_id}
 		)
 	</insert>
